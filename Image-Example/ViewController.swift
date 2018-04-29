@@ -8,11 +8,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
+    var imagePicker = UIImagePickerController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        imagePicker.delegate = self
+        present (imagePicker, animated: true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,5 +25,13 @@ class ViewController: UIViewController {
     }
 
 
+
+
+    @IBAction func takePhotoTapped(_ sender: Any) {
+        imagePicker.sourceType = .camera
+        present(imagePicker, animated: true, completion, nil)
+
+
+    }
 }
 
